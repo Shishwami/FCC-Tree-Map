@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree Map</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="fullscreen">
+        <div id="app-container">
+            <div id="links">
+                | <a class="dataset-link" href="?data=video">Video Game Sales</a> |
+                <a class="dataset-link" href="?data=kickstarter">Kickstarter Pledges</a> |
+                <a class="dataset-link" href="?data=movie">Movie Sales</a> |
+            </div>
+            <div class="head">
+                <h1 id="title">Plceholder Title</h1>
+                <h3 id="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur voluptatum aliquid
+                    nobis error magnam magni illum enim velit atque illo quo explicabo, dolores pariatur labore
+                    consectetur quibusdam, expedita ex nam?</h3>
+            </div>
+
+            <div id="main-svg"></div>
+            <div id="legend"></div>
+        </div>
+        <footer>Coded By <a href="https://github.com/Shishwami">Shishwami</a></footer>
+    </div>
+    <div id="tooltip"></div>
+</body>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+<script src="./script.js"></script>
+<script>
+    document.querySelectorAll(".dataset-link").forEach(link => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
+            const datasetKey = new URL(this.href).searchParams.get("data");
+            loadDataset(datasetKey);
+        });
+    });
+</script>
+
+</html>
