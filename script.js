@@ -7,9 +7,10 @@ const datasets = {
 function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
     console.log(param);
-    
+    alert("hi")
     return urlParams.get(param);
 }
 
 const datasetKey = getQueryParam("data") || "video";
 
+console.log(datasetKey);
