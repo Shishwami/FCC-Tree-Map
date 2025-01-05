@@ -79,12 +79,16 @@ function createTreemap(data, datasetName) {
             tooltip.style("visibility", "hidden");
         });
 
+    const fontSize = 12;
+
     tiles.append("text")
         .attr("class", "tile-text")
         .selectAll("tspan")
         .data(d => {
             const name = d.data.name.split(' ');
-            const limit = Math.floor((d.x1 - d.x0) / 6);
+            const maxWidth = d.x1 - d.x0;
+            const limit = Math.floor(maxWidth/(fontSize/1.6));
+
             const lines = [];
             let line = [];
             name.forEach(word => {
